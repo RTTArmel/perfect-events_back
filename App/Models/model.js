@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const ProfileSchema = mongoose.Schema({
     _id: {type:Number,required:true},
     nom: { type: String, required: true },
-    contact: {type:Number,required:true},
+    contact: Number,
     email: { type: String, required: true },
     password:{ type: String, required: true },
 }, {

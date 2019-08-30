@@ -7,8 +7,9 @@ const ProfileSchema = mongoose.Schema({
     prenom: { type: String, required: true },
     email: { type: String, required: true },
     telephone:{ type: Number, required: true },
+    password: { type: String, required: true },    
 }, {
     timestamps: true
 });
 
-module.exports = mongoose.model('particulier',ProfileSchema);
+module.exports = mongoose.model('client',ProfileSchema);

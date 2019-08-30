@@ -1,5 +1,7 @@
 var controllerAdmin = require('../Cotrollers/controller_admin');
 var controllerArticle = require('../Cotrollers/controller_service');
+var controllerClient = require('../Cotrollers/controller_client');
+var controllerListe = require('../Cotrollers/controller_liste');
 
 module.exports.route = function (app) {
 
@@ -16,8 +18,16 @@ module.exports.route = function (app) {
     app.route('/service/:image').get(controllerArticle.findOneService);
     app.route('/desactivation/:id').get(controllerArticle.desactivation);
     app.route('/activation/:id').get(controllerArticle.activation);
-    app.get('/service/:id', controllerArticle.findOne);
+    app.route('/service/:id').get(controllerArticle.findOne);
     // app.get('/user/:photo_profil', pers.lireImage);
+
+    app.route('/client').post(controllerClient.postClient);
+    app.route('/signin').post(controllerClient.loginClient);
+
+    app.route('/postList').post(controllerListe.createListe);
+    app.route('/getList').get(controllerListe.findAllListe);
+    app.route('/updateList/:id').put(controllerListe.updateList);
+
 }
 
  /*     app.route('/update/:id')
