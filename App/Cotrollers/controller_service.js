@@ -131,7 +131,7 @@ exports.updateService = (req, res) => {
 
 //SUPPRESSION SERVICE
 module.exports.deleteService = function (req, res) {
-    Profile.findByIdAndRemove(req.params.id, function (err) {
+    Service.findByIdAndRemove(req.params.id, function (err) {
         Profile.find()
             .then(note => { res.send(note) })
     })
@@ -165,8 +165,8 @@ exports.findOne = (req, res) => {
 };
 
 exports.desactivation = (req, res) => {
-    Profile.findById(req.params.id).then(srvc => {
-        Profile.findByIdAndUpdate(srvc._id, {
+    Service.findById(req.params.id).then(srvc => {
+        Service.findByIdAndUpdate(srvc._id, {
             _id: srvc.id,
             utilisateur: srvc.utilisateur,
             titre: srvc.titre,
@@ -186,8 +186,8 @@ exports.desactivation = (req, res) => {
 }
 
 exports.activation = (req, res) => {
-    Profile.findById(req.params.id).then(srvc => {
-        Profile.findByIdAndUpdate(srvc._id, {
+    Service.findById(req.params.id).then(srvc => {
+        Service.findByIdAndUpdate(srvc._id, {
             _id: srvc.id,
             utilisateur: srvc.utilisateur,
             titre: srvc.titre,

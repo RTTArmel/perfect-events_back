@@ -10,7 +10,7 @@ const ArticleSchema = mongoose.Schema({
     image1: { type: String, required: true },
     image2: { type: String, required: true },
     description: { type: String, required: true },
-    prix: { type: Number, required: true },
+    prix: Number, 
     active: Boolean
 }, {
         timestamps: true
